@@ -1,0 +1,11 @@
+let url = "https://sun9-20.userapi.com/c543109/v543109246/5a3d3/d65h8OaQx8w.jpg"
+
+let options : RXWC_ImageViewOptions = [.byImageIO, .resizeImageIfItGreaterThenView]
+
+let size = CGSize.init(width: 120, height: 120)
+let mode : UIView.ContentMode  = .scaleAspectFill
+
+RXWC_ReceiveImageOperation.async_image(atURL: url, options:options, mode:mode, size: size) { (c) in
+    
+    print("img: \(String(describing: c.img)) | error: \(String(describing: c.error))")
+}.retainAndStart()

@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------------------------------------------------------
+ Comparative performance test 'RXWebCache' vs 'SDWebImage'
+ --------------------------------------------------------------------------------------------------------------*/
+
+ // Clearing the caches of both libraries from disk
+ [self cleanupSandbox];
+
+ // Initializing the object that will perform the test
+ self.unitTestSDWebImage = [CompareRXWebCacheWithSDWebImage_Test new];
+
+ // The 'urlsToImagesArray' method generates a maximum of 255 links to images.
+ // Here we trim the array to 20 elements
+ NSArray<NSString*>* urls = [[MockupDataSource urlsToImagesArray] subarrayWithRange:NSMakeRange(0,20)];
+ NSLog(@"urls: %@",urls);
+
+ // Starting the testing procedure
+ [self.unitTestSDWebImage separateCompareTechnologiesWithURLsToImages:urls];

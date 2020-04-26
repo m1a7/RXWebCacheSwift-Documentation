@@ -1,0 +1,6 @@
+let url  = "https://raw.githubusercontent.com/m1a7/DemoJSONsForNetworkLayer/master/infoAboutCompany.json"
+
+RXWC_ReceiveDictionaryOperation.async_dict(atURL: url) { (completionObject) in
+    print("json: \(String(describing: completionObject.dict)) | ",
+          "error: \(String(describing: completionObject.error))")
+}.retainAndStart()

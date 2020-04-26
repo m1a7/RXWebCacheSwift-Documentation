@@ -1,0 +1,10 @@
+let url = "https://raw.githubusercontent.com/m1a7/DemoJSONsForNetworkLayer/master/LoremIpsum.txt"
+let completionObject = RXWC_ReceiveItemOperation.sync_item(atURL:url, params:nil, expirePeriod:.oneDayTerm, options:[], progress:nil)
+
+if completionObject.error != nil {
+    print("completionObject.error ❌ \(String(describing:completionObject.error)) ")
+} else if completionObject.item.receivedData.count > 0 {
+    
+    let result = NSString.init(data:completionObject.item.receivedData, encoding:String.Encoding.utf8.rawValue)
+    print("✅ result: \(String(describing: result)))")
+}

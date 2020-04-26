@@ -1,0 +1,5 @@
+DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+   let url = "https://raw.githubusercontent.com/m1a7/DemoJSONsForNetworkLayer/master/infoAboutCompany.json"
+   let json = RXWC_ReceiveDictionaryOperation.sync_dict(atURL: url)
+   print("json: \(json)")
+}

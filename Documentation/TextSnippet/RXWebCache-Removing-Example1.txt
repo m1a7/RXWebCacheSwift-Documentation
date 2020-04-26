@@ -1,0 +1,7 @@
+let credoKey = "credoKey"
+
+if let error = RXWebCache.removeItemFromCache(atURL: credoKey, params: nil){
+    print("Removing failed with error ❌ \(String(describing:error))")
+}else{
+    print("Removing was successful ✅")
+}

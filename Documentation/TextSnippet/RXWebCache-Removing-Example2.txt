@@ -1,0 +1,7 @@
+let fetchedWrapper = RXWebCache.fetchWrapperFromDisk(atGlobalURL: credoKey, params: nil)
+
+if let error = RXWebCache.removeWrapper(fromCache: fetchedWrapper!){
+    print("Removing failed with error ❌ \(String(describing:error))")
+}else{
+    print("Removing was successful ✅")
+}

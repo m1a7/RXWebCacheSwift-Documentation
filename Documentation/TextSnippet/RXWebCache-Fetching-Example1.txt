@@ -1,0 +1,11 @@
+let credoKey = "credoKey"
+let fetchedWrapper = RXWebCache.fetchWrapperFromDisk(atGlobalURL: credoKey, params: nil)
+
+if fetchedWrapper == nil {
+    print("Previously written item was not extracted  ❌")
+}else {
+    
+    let unwrappedCredo = NSString.init(data:fetchedWrapper!.receivedData, encoding:String.Encoding.utf8.rawValue)
+    print("Previously written item was successfully extracted ✅: \(String(describing: fetchedWrapper))")
+    print("unwrappedCredo: \(unwrappedCredo)")
+}

@@ -1,0 +1,4 @@
+override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    let convertedCell = cell as! TableCell
+    convertedCell.imgView?.cancelCachingImage()
+}

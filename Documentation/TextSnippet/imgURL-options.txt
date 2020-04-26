@@ -1,0 +1,3 @@
+
+
+self.imageView?.imgURL(url, options: [.byImageIO, .resizeImageIfItGreaterThenView])

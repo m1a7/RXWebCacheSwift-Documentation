@@ -1,0 +1,6 @@
+let options : RXWC_ImageViewOptions = [.byImageIO, .resizeImageIfItGreaterThenView]
+self.imageView?.imgURL(url, params:nil, options: options, placeholder: nil, progress: { (p) in
+    let progress = Float(p.receviedBytes)/Float(p.expectedToReceiveBytes)
+    cell.progressView?.progress = progress
+    print("progress: \(progress) | \(p.receviedBytes)  \(p.expectedToReceiveBytes)")
+})

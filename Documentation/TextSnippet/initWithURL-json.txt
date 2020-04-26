@@ -1,0 +1,19 @@
+RXWC_ReceiveItemOperation.initWithURL(url, params: nil, expirePeriod: .oneDayTerm, options: .storeItemsInRAMCache, progress: { (p) in
+    
+    let progress = Float(p.receviedBytes)/Float(p.expectedToReceiveBytes)
+    print("progress: \(progress) | \(p.receviedBytes)  \(p.expectedToReceiveBytes)")
+}) { (c) in
+    
+    guard c.error == nil else {
+        print("error \(String(describing: c.error))")
+        return
+    }
+    do {
+        let jsonObject = try JSONSerialization.jsonObject(with: c.item.receivedData)
+        if let dictionary = jsonObject as? [String: Any]{
+            print(dictionary)
+        }
+    } catch {
+        print("JSONSerialization error:", error)
+    }
+}.retainAndStart()

@@ -1,0 +1,15 @@
+DispatchQueue.global(qos: .userInitiated).async { 
+
+    let url1 = "https://sun9-20.userapi.com/c543109/v543109246/5a3d3/d65h8OaQx8w.jpg"
+    let url2 = "https://sun6-2.userapi.com/c850728/v850728132/14fb0d/E4Ks-pnJ8iY.jpg"
+    
+    let options : RXWC_ImageViewOptions = [.byImageIO, .resizeImageIfItGreaterThenView]
+    
+    let size = CGSize.init(width: 120, height: 120)
+    let mode : UIView.ContentMode  = .scaleAspectFill
+    
+    let img1 = RXWC_ReceiveImageOperation.sync_image(atURL: url1, options: options, mode: mode, size: size)
+    let img2 = RXWC_ReceiveImageOperation.sync_image(atURL: url2, options: options, mode: mode, size: size)
+    
+    print("img1: \(img1) | img2: \(img2)")
+}

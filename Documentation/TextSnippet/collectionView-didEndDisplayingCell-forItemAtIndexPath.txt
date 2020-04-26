@@ -1,0 +1,5 @@
+override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    
+    let convertedCell = cell as! CollectionCell
+    convertedCell.imgView?.cancelCachingImage()
+}

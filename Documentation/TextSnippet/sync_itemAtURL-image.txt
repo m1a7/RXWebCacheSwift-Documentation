@@ -1,0 +1,14 @@
+        let url = "https://sun9-20.userapi.com/c543109/v543109246/5a3d3/d65h8OaQx8w.jpg"
+
+        let completionObject =
+        RXWC_ReceiveItemOperation.sync_item(atURL: url, params: nil, expirePeriod:.oneDayTerm, options:.callProgressBlockOnBackground) { (p) in
+            let progress = Float(p.receviedBytes)/Float(p.expectedToReceiveBytes)
+            print("progress: \(progress) | \(p.receviedBytes)  \(p.expectedToReceiveBytes)")
+        }
+
+        if completionObject.error != nil {
+            print("completionObject.error ❌ \(String(describing:completionObject.error)) ")
+        } else if completionObject.item.receivedData.count > 0 {
+              let image  = UIImage.init(data: completionObject.item.receivedData)
+            print("✅ image: \(String(describing: image))")
+        }

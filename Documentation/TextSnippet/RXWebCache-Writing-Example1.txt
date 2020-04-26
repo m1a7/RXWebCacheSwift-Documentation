@@ -1,0 +1,11 @@
+let credo    = "Time doesn't like to be wasted."
+let data     = credo.data(using: .utf8)
+let credoKey = "credoKey"
+
+let wrapper = RXWC_WrapperItem.initWithURL(credoKey, params: nil, cachedData: data, expireTime: .oneDayTerm)
+
+if let error = RXWebCache.writeWrapper(toCache: wrapper){
+    print("riting failed with error ❌ \(String(describing:error))")
+}else{
+    print("Writing was successful ✅")
+}

@@ -1,0 +1,6 @@
+let image    = UIImage.init(named:"placeholder")
+let imageKey = "imageKey"
+let cost     = RXWebCache.memorySize(from: image)
+let size = CGSize.init(width: 100, height: 100)
+let tomorrow = Date.init().addingTimeInterval(86400)
+RXWebCache.addImage(toRAMCache: image, atURL: imageKey, atParams: nil, forImageViewSize: size, costInBytes: cost, expireDate: tomorrow)
